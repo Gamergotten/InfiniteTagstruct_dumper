@@ -319,6 +319,13 @@ namespace MyApp // Note: actual namespace depends on the project name.
                                 //table2_ref = read_the_big_chunky_one(address) // bruh this in the wrong spot
                             }
                         };
+                        // i think we can just ingore that stuff
+                        int Repeatamount = m.ReadInt((next_next_next_address + 8).ToString("X"));
+
+                        for (int i = 0; i < Repeatamount; i++)
+                        {
+                            read_the_big_chunky_one(m.ReadLong((next_next_next_address + 24).ToString("X")));
+                        }
                         break;
                     case 0x40:
                         new possible_t1_struct_c_instance
